@@ -4,9 +4,10 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Oro Lounge — Events, Bar & Restaurant</title>
+    <title>Oro Lounge - Night Club, Bar, Restaurant and events</title>
     <meta name="description"
-        content="Oro Lounge is your premier destination for fine dining, craft cocktails, and unforgettable events. Experience luxury redefined." />
+        content="A premier destination for exceptional dining, handcrafted cocktails, and unforgettable events, live shows, Night club — all under one roof" />
+    <link rel="icon" type="image/png" href="favicon.png" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -73,17 +74,17 @@
         }
 
         .nav-logo img {
-            height: 52px;
-            width: 52px;
+            height: 48px;
             object-fit: contain;
-            filter: brightness(0) invert(1);
-            border-radius: 50%;
+            transition: transform 0.3s;
+        }
+
+        .nav-logo:hover img {
+            transform: scale(1.05);
         }
 
         .nav-logo-text {
-            display: flex;
-            flex-direction: column;
-            line-height: 1;
+            display: none;
         }
 
         .nav-logo-text span:first-child {
@@ -95,11 +96,13 @@
         }
 
         .nav-logo-text span:last-child {
-            font-size: 0.55rem;
-            letter-spacing: 3px;
+            font-size: 0.72rem;
+            letter-spacing: 1px;
             text-transform: uppercase;
-            color: var(--red-light);
-            margin-top: 3px;
+            color: var(--white);
+            margin-top: 4px;
+            font-weight: 600;
+            opacity: 0.9;
         }
 
         .nav-links {
@@ -169,7 +172,7 @@
         .hero-bg {
             position: absolute;
             inset: 0;
-            background: url('bararea.png') center center / cover no-repeat;
+            background: url('bararea2.png') center center / cover no-repeat;
             transform: scale(1.05);
             animation: heroZoom 12s ease-in-out infinite alternate;
         }
@@ -212,7 +215,7 @@
             letter-spacing: 4px;
             text-transform: uppercase;
             padding: 8px 24px;
-            margin-bottom: 28px;
+            margin-bottom: 80px;
             border-radius: 50px;
             box-shadow: 0 0 20px rgba(200, 151, 42, 0.2);
             animation: fadeUp 0.8s ease forwards;
@@ -221,16 +224,22 @@
 
         .hero-title {
             font-family: 'Playfair Display', serif;
-            font-size: clamp(3rem, 7vw, 6rem);
+            font-size: clamp(2.4rem, 5.5vw, 4.4rem);
             font-weight: 700;
-            line-height: 1.05;
+            line-height: 1.1;
             margin-bottom: 24px;
             animation: fadeUp 0.9s 0.2s ease forwards;
             opacity: 0;
         }
 
+        .hero-title .white-text {
+            color: #FFFFFF;
+            text-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+        }
+
         .hero-title .gold {
             color: var(--gold-light);
+            text-shadow: 0 4px 12px rgba(154, 110, 19, 0.4);
         }
 
         .hero-title .red {
@@ -238,14 +247,40 @@
         }
 
         .hero-sub {
-            font-size: 1.05rem;
-            color: rgba(255, 255, 255, 0.7);
-            line-height: 1.7;
-            max-width: 580px;
-            margin: 0 auto 40px;
-            font-weight: 300;
-            animation: fadeUp 1s 0.4s ease forwards;
+            font-size: 1.15rem;
+            color: #FFFFFF;
+            line-height: 1.8;
+            max-width: 680px;
+            margin: 0 auto 48px;
+            font-weight: 500;
+            text-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
+            animation: fadeUp 1s 0.5s ease forwards;
             opacity: 0;
+        }
+
+        .hero-sub span {
+            color: var(--gold-light);
+            font-weight: 600;
+        }
+
+        .hero-services {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 15px;
+            color: var(--white);
+            font-size: 0.9rem;
+            letter-spacing: 5px;
+            text-transform: uppercase;
+            font-weight: 600;
+            margin-bottom: 30px;
+            animation: fadeUp 1s 0.3s ease forwards;
+            opacity: 0;
+        }
+
+        .hero-services span {
+            color: var(--gold-light);
+            text-shadow: 0 0 10px rgba(200, 151, 42, 0.4);
         }
 
         .hero-actions {
@@ -432,8 +467,9 @@
 
         .experience-grid {
             display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 2px;
+            grid-template-columns: repeat(2, 1fr);
+            grid-auto-rows: 1fr;
+            gap: 24px;
             max-width: 1200px;
             margin: 0 auto;
         }
@@ -507,13 +543,13 @@
             margin-top: 10px;
         }
 
-        /* large card spans 2 cols */
+        /* large card styles removed for equal size */
         .exp-card.large {
-            grid-column: span 2;
+            grid-column: span 1;
         }
 
         .exp-card.large {
-            aspect-ratio: 8/5;
+            aspect-ratio: 4/5;
         }
 
         /* ── MENU PREVIEW ── */
@@ -975,6 +1011,20 @@
         }
 
         @media (max-width: 600px) {
+            .hero-title {
+                font-size: 1.8rem;
+                white-space: normal;
+                line-height: 1.3;
+            }
+
+            .hero-services {
+                font-size: 0.75rem;
+                letter-spacing: 3px;
+                gap: 8px;
+                flex-wrap: wrap;
+                margin-bottom: 24px;
+            }
+
             .stats-bar {
                 flex-wrap: wrap;
                 gap: 24px;
@@ -1013,11 +1063,7 @@
     <!-- NAVBAR -->
     <nav id="navbar">
         <a href="#" class="nav-logo">
-            <img src="logo.jpg" alt="Oro Lounge Logo" />
-            <div class="nav-logo-text">
-                <span>ORO LOUNGE</span>
-                <span>Night Club · Events · Bar · Restaurant</span>
-            </div>
+            <img src="logo-oro.png" alt="Oro Lounge Logo" />
         </a>
         <ul class="nav-links">
             <li><a href="#experience">Experience</a></li>
@@ -1034,15 +1080,19 @@
         <div class="hero-content">
             <div class="hero-tag">Welcome to Oro Lounge</div>
             <h1 class="hero-title">
-                Where Every Night<br />Becomes <span class="gold">Golden</span>
+                <span class="white-text">Where Every Night</span><br />Becomes <span class="gold">Golden</span>
             </h1>
+            <div class="hero-services">
+                Night Club <span>·</span> Events <span>·</span> Bar <span>·</span> Restaurant<span>·</span> Banquet Hall
+            </div>
             <p class="hero-sub">
-                A premier destination for exceptional dining, handcrafted cocktails, and unforgettable events — all
-                under one roof.
+                A premier destination for <span>exceptional dining</span>, <span>handcrafted cocktails</span>, and
+                <span>unforgettable events</span> — all under one roof.
             </p>
             <div class="hero-actions">
                 <a href="#reserve" class="btn-primary">Reserve a Table</a>
                 <a href="#menu" class="btn-outline">Explore Our Menu</a>
+                <a href="#reserve" class="btn-primary">Reserve Banquet Hall</a>
             </div>
         </div>
         <div class="hero-scroll">
@@ -1070,58 +1120,6 @@
             <div class="stat-label">Years of Excellence</div>
         </div>
     </div>
-
-    <!-- EXPERIENCE -->
-    <section id="experience">
-        <div class="section-header reveal">
-            <div class="section-tag">What We Offer</div>
-            <h2 class="section-title">The Oro Experience</h2>
-            <div class="section-line"></div>
-        </div>
-
-        <div class="experience-grid">
-            <div class="exp-card large reveal">
-                <img src="oroBar.jpg" alt="Oro Bar" />
-                <div class="exp-card-overlay">
-                    <div class="exp-icon">🍸</div>
-                    <div class="exp-card-title">The Bar</div>
-                    <div class="exp-card-desc">Craft cocktails, premium spirits, and an extensive wine list curated to
-                        perfection by our expert mixologists.</div>
-                    <div class="exp-card-tag">Signature Cocktails</div>
-                </div>
-            </div>
-            <div class="exp-card reveal">
-                <img src="pic1.jpg" alt="Dining" />
-                <div class="exp-card-overlay">
-                    <div class="exp-icon">🍽️</div>
-                    <div class="exp-card-title">Dining</div>
-                    <div class="exp-card-desc">From casual bites to full-course meals, our kitchen delivers bold flavors
-                        for every appetite.</div>
-                    <div class="exp-card-tag">Full Menu Available</div>
-                </div>
-            </div>
-            <div class="exp-card reveal">
-                <img src="orobar2.jpg" alt="Events" />
-                <div class="exp-card-overlay">
-                    <div class="exp-icon">🎉</div>
-                    <div class="exp-card-title">Events</div>
-                    <div class="exp-card-desc">Host birthdays, corporate events, or private parties in our spacious,
-                        fully-equipped venue.</div>
-                    <div class="exp-card-tag">Book Your Event</div>
-                </div>
-            </div>
-            <div class="exp-card reveal">
-                <img src="oroBar.jpg" alt="Live Entertainment" />
-                <div class="exp-card-overlay">
-                    <div class="exp-icon">🎶</div>
-                    <div class="exp-card-title">Live Entertainment</div>
-                    <div class="exp-card-desc">Weekend live music, DJ nights, and sports screenings on multiple HD
-                        screens throughout the venue.</div>
-                    <div class="exp-card-tag">Every Weekend</div>
-                </div>
-            </div>
-        </div>
-    </section>
 
     <!-- MENU PREVIEW -->
     <section id="menu">
@@ -1287,6 +1285,58 @@
         </div>
     </section>
 
+    <!-- EXPERIENCE -->
+    <section id="experience">
+        <div class="section-header reveal">
+            <div class="section-tag">What We Offer</div>
+            <h2 class="section-title">The Oro Experience</h2>
+            <div class="section-line"></div>
+        </div>
+
+        <div class="experience-grid">
+            <div class="exp-card reveal">
+                <img src="oroBar.jpg" alt="Oro Bar" />
+                <div class="exp-card-overlay">
+                    <div class="exp-icon">🍸</div>
+                    <div class="exp-card-title">The Bar</div>
+                    <div class="exp-card-desc">Craft cocktails, premium spirits, and an extensive wine list curated to
+                        perfection by our expert mixologists.</div>
+                    <div class="exp-card-tag">Signature Cocktails</div>
+                </div>
+            </div>
+            <div class="exp-card reveal">
+                <img src="dancearea.png" alt="Dining" />
+                <div class="exp-card-overlay">
+                    <div class="exp-icon">🍽️</div>
+                    <div class="exp-card-title">Dining</div>
+                    <div class="exp-card-desc">From casual bites to full-course meals, our kitchen delivers bold flavors
+                        for every appetite.</div>
+                    <div class="exp-card-tag">Full Menu Available</div>
+                </div>
+            </div>
+            <div class="exp-card reveal">
+                <img src="bararea2.png" alt="Events" />
+                <div class="exp-card-overlay">
+                    <div class="exp-icon">🎉</div>
+                    <div class="exp-card-title">Events</div>
+                    <div class="exp-card-desc">Host birthdays, corporate events, or private parties in our spacious,
+                        fully-equipped venue.</div>
+                    <div class="exp-card-tag">Book Your Event</div>
+                </div>
+            </div>
+            <div class="exp-card reveal">
+                <img src="oroBar.jpg" alt="Live Entertainment" />
+                <div class="exp-card-overlay">
+                    <div class="exp-icon">🎶</div>
+                    <div class="exp-card-title">Live Entertainment</div>
+                    <div class="exp-card-desc">Weekend live music, DJ nights, and sports screenings on multiple HD
+                        screens throughout the venue.</div>
+                    <div class="exp-card-tag">Every Weekend</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <!-- GALLERY -->
     <section id="gallery">
         <div class="section-header reveal">
@@ -1301,14 +1351,14 @@
                     <div class="gallery-plus">＋</div>
                 </div>
             </div>
-            <div class="gallery-item wide reveal">
-                <img src="orobar2.jpg" alt="Full Bar View" />
+            <div class="gallery-item reveal">
+                <img src="oroBar.jpg" alt="Full Bar View" />
                 <div class="gallery-item-overlay">
                     <div class="gallery-plus">＋</div>
                 </div>
             </div>
             <div class="gallery-item reveal">
-                <img src="pic1.jpg" alt="Dining Area" />
+                <img src="dancearea.png" alt="Dining Area" />
                 <div class="gallery-item-overlay">
                     <div class="gallery-plus">＋</div>
                 </div>
@@ -1320,7 +1370,7 @@
                 </div>
             </div>
             <div class="gallery-item reveal">
-                <img src="orobar2.jpg" alt="Bar Seating" />
+                <img src="oroBar.jpg" alt="Bar Seating" />
                 <div class="gallery-item-overlay">
                     <div class="gallery-plus">＋</div>
                 </div>
@@ -1402,7 +1452,7 @@
     <footer>
         <div class="footer-grid">
             <div class="footer-brand">
-                <img src="logo.jpg" alt="Oro Lounge" />
+                <img src="logo-oro.png" alt="Oro Lounge" style="height: 60px; margin-bottom: 20px;" />
                 <p>Oro Lounge is your premier destination for memorable experiences — where great food, expertly crafted
                     drinks, and vibrant events come together.</p>
                 <div class="footer-socials">
@@ -1433,14 +1483,14 @@
             </div>
             <div class="footer-col footer-contact">
                 <h4>Contact Us</h4>
-                <p><span class="icon">📍</span> 123 Lounge Blvd, Suite 100<br />Your City, ST 00000</p>
-                <p><span class="icon">📞</span> (555) 123-4567</p>
+                <p><span class="icon">📍</span> 2875 Brookdale Dr, Brooklyn Park, MN 55444</p>
+                <p><span class="icon">📞</span> (612) 715-5474</p>
                 <p><span class="icon">✉️</span> info@orolounge.com</p>
             </div>
         </div>
         <div class="footer-bottom">
             <p>© 2025 Oro Lounge. All rights reserved.</p>
-            <p>Made with <span>♥</span> for unforgettable nights.</p>
+            <p>Developed by Syphe IT Services</p>
         </div>
     </footer>
 
