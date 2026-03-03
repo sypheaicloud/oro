@@ -1,0 +1,1482 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Oro Lounge — Events, Bar & Restaurant</title>
+    <meta name="description"
+        content="Oro Lounge is your premier destination for fine dining, craft cocktails, and unforgettable events. Experience luxury redefined." />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Inter:wght@300;400;500;600&display=swap"
+        rel="stylesheet" />
+    <style>
+        *,
+        *::before,
+        *::after {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        :root {
+            --gold: #C8972A;
+            --gold-light: #E8B84B;
+            --gold-dark: #9A6E13;
+            --red: #C0272D;
+            --red-light: #E03035;
+            --black: #0A0A0A;
+            --dark: #111111;
+            --dark2: #1A1A1A;
+            --dark3: #222222;
+            --gray: #555555;
+            --light: #F5F0E8;
+            --white: #FFFFFF;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background: var(--black);
+            color: var(--white);
+            overflow-x: hidden;
+        }
+
+        /* ── NAVBAR ── */
+        nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 10%;
+            height: 80px;
+            background: rgba(10, 10, 10, 0.85);
+            backdrop-filter: blur(16px);
+            border-bottom: 1px solid rgba(200, 151, 42, 0.15);
+            transition: background 0.4s;
+        }
+
+        .nav-logo {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            text-decoration: none;
+        }
+
+        .nav-logo img {
+            height: 52px;
+            width: 52px;
+            object-fit: contain;
+            filter: brightness(0) invert(1);
+            border-radius: 50%;
+        }
+
+        .nav-logo-text {
+            display: flex;
+            flex-direction: column;
+            line-height: 1;
+        }
+
+        .nav-logo-text span:first-child {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.3rem;
+            font-weight: 700;
+            color: var(--gold-light);
+            letter-spacing: 2px;
+        }
+
+        .nav-logo-text span:last-child {
+            font-size: 0.55rem;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            color: var(--red-light);
+            margin-top: 3px;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 36px;
+            list-style: none;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: rgba(255, 255, 255, 0.75);
+            font-size: 0.82rem;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            transition: color 0.3s;
+            position: relative;
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -4px;
+            left: 0;
+            width: 0;
+            height: 1px;
+            background: var(--gold-light);
+            transition: width 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: var(--gold-light);
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        .nav-cta {
+            background: var(--red);
+            color: var(--white) !important;
+            padding: 10px 22px;
+            border-radius: 2px;
+            letter-spacing: 1.5px;
+            font-size: 0.78rem !important;
+            transition: background 0.3s !important;
+        }
+
+        .nav-cta:hover {
+            background: var(--red-light) !important;
+            color: var(--white) !important;
+        }
+
+        .nav-cta::after {
+            display: none !important;
+        }
+
+        /* ── HERO ── */
+        #hero {
+            position: relative;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+        }
+
+        .hero-bg {
+            position: absolute;
+            inset: 0;
+            background: url('bararea.png') center center / cover no-repeat;
+            transform: scale(1.05);
+            animation: heroZoom 12s ease-in-out infinite alternate;
+        }
+
+        @keyframes heroZoom {
+            from {
+                transform: scale(1.05);
+            }
+
+            to {
+                transform: scale(1.12);
+            }
+        }
+
+        .hero-overlay {
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(to bottom,
+                    rgba(10, 10, 10, 0.18) 0%,
+                    rgba(10, 10, 10, 0.38) 55%,
+                    rgba(10, 10, 10, 0.82) 100%);
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            text-align: center;
+            padding: 0 20px;
+            max-width: 860px;
+        }
+
+        .hero-tag {
+            display: inline-block;
+            border: 1px solid var(--gold);
+            color: var(--gold-light);
+            font-size: 0.72rem;
+            letter-spacing: 4px;
+            text-transform: uppercase;
+            padding: 6px 20px;
+            margin-bottom: 28px;
+            animation: fadeUp 0.8s ease forwards;
+            opacity: 0;
+        }
+
+        .hero-title {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(3rem, 7vw, 6rem);
+            font-weight: 700;
+            line-height: 1.05;
+            margin-bottom: 24px;
+            animation: fadeUp 0.9s 0.2s ease forwards;
+            opacity: 0;
+        }
+
+        .hero-title .gold {
+            color: var(--gold-light);
+        }
+
+        .hero-title .red {
+            color: var(--red-light);
+        }
+
+        .hero-sub {
+            font-size: 1.05rem;
+            color: rgba(255, 255, 255, 0.7);
+            line-height: 1.7;
+            max-width: 580px;
+            margin: 0 auto 40px;
+            font-weight: 300;
+            animation: fadeUp 1s 0.4s ease forwards;
+            opacity: 0;
+        }
+
+        .hero-actions {
+            display: flex;
+            gap: 16px;
+            justify-content: center;
+            flex-wrap: wrap;
+            animation: fadeUp 1s 0.6s ease forwards;
+            opacity: 0;
+        }
+
+        .btn-primary {
+            background: var(--red);
+            color: #fff;
+            padding: 15px 36px;
+            font-size: 0.82rem;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            border: none;
+            cursor: pointer;
+            text-decoration: none;
+            display: inline-block;
+            transition: background 0.3s, transform 0.2s;
+            border-radius: 2px;
+        }
+
+        .btn-primary:hover {
+            background: var(--red-light);
+            transform: translateY(-2px);
+        }
+
+        .btn-outline {
+            background: transparent;
+            color: var(--gold-light);
+            padding: 14px 36px;
+            font-size: 0.82rem;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            border: 1px solid var(--gold);
+            cursor: pointer;
+            text-decoration: none;
+            display: inline-block;
+            transition: background 0.3s, color 0.3s, transform 0.2s;
+            border-radius: 2px;
+        }
+
+        .btn-outline:hover {
+            background: var(--gold);
+            color: var(--black);
+            transform: translateY(-2px);
+        }
+
+        .hero-scroll {
+            position: absolute;
+            bottom: 36px;
+            left: 50%;
+            transform: translateX(-50%);
+            z-index: 2;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 8px;
+            color: rgba(255, 255, 255, 0.45);
+            font-size: 0.65rem;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            animation: bounce 2s infinite;
+        }
+
+        .hero-scroll .arrow {
+            width: 20px;
+            height: 20px;
+            border-right: 1px solid;
+            border-bottom: 1px solid;
+            transform: rotate(45deg);
+            border-color: var(--gold);
+        }
+
+        @keyframes bounce {
+
+            0%,
+            100% {
+                transform: translateX(-50%) translateY(0);
+            }
+
+            50% {
+                transform: translateX(-50%) translateY(8px);
+            }
+        }
+
+        @keyframes fadeUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* ── STATS BAR ── */
+        .stats-bar {
+            background: var(--dark2);
+            border-top: 1px solid rgba(200, 151, 42, 0.2);
+            border-bottom: 1px solid rgba(200, 151, 42, 0.2);
+            padding: 36px 10%;
+            display: flex;
+            justify-content: center;
+            gap: 0;
+        }
+
+        .stat-item {
+            flex: 1;
+            max-width: 220px;
+            text-align: center;
+            padding: 0 30px;
+            border-right: 1px solid rgba(255, 255, 255, 0.08);
+        }
+
+        .stat-item:last-child {
+            border-right: none;
+        }
+
+        .stat-number {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.4rem;
+            font-weight: 700;
+            color: var(--gold-light);
+        }
+
+        .stat-label {
+            font-size: 0.72rem;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            color: rgba(255, 255, 255, 0.5);
+            margin-top: 6px;
+        }
+
+        /* ── SECTION HEADER ── */
+        .section-header {
+            text-align: center;
+            margin-bottom: 64px;
+        }
+
+        .section-tag {
+            display: inline-block;
+            color: var(--gold-light);
+            font-size: 0.7rem;
+            letter-spacing: 4px;
+            text-transform: uppercase;
+            margin-bottom: 14px;
+        }
+
+        .section-tag::before,
+        .section-tag::after {
+            content: '──';
+            margin: 0 10px;
+            opacity: 0.5;
+        }
+
+        .section-title {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(2rem, 4vw, 3rem);
+            font-weight: 600;
+            color: var(--white);
+            line-height: 1.2;
+        }
+
+        .section-line {
+            width: 60px;
+            height: 2px;
+            background: linear-gradient(90deg, var(--gold-dark), var(--gold-light));
+            margin: 20px auto 0;
+            border-radius: 2px;
+        }
+
+        /* ── EXPERIENCE ── */
+        #experience {
+            padding: 100px 10%;
+            background: var(--dark);
+        }
+
+        .experience-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .exp-card {
+            position: relative;
+            overflow: hidden;
+            aspect-ratio: 4/5;
+            cursor: pointer;
+        }
+
+        .exp-card img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.6s ease;
+        }
+
+        .exp-card:hover img {
+            transform: scale(1.08);
+        }
+
+        .exp-card-overlay {
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(to top, rgba(10, 10, 10, 0.9) 0%, transparent 55%);
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
+            padding: 32px;
+            transition: background 0.4s;
+        }
+
+        .exp-card:hover .exp-card-overlay {
+            background: linear-gradient(to top, rgba(10, 10, 10, 0.95) 0%, rgba(10, 10, 10, 0.3) 55%);
+        }
+
+        .exp-icon {
+            font-size: 2.2rem;
+            margin-bottom: 12px;
+        }
+
+        .exp-card-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.5rem;
+            color: var(--white);
+            margin-bottom: 8px;
+        }
+
+        .exp-card-desc {
+            font-size: 0.85rem;
+            color: rgba(255, 255, 255, 0.65);
+            line-height: 1.6;
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.4s ease;
+        }
+
+        .exp-card:hover .exp-card-desc {
+            max-height: 80px;
+        }
+
+        .exp-card-tag {
+            display: inline-block;
+            border-top: 1px solid var(--gold);
+            color: var(--gold-light);
+            font-size: 0.65rem;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            padding-top: 10px;
+            margin-top: 10px;
+        }
+
+        /* large card spans 2 cols */
+        .exp-card.large {
+            grid-column: span 2;
+        }
+
+        .exp-card.large {
+            aspect-ratio: 8/5;
+        }
+
+        /* ── MENU PREVIEW ── */
+        #menu {
+            padding: 100px 10%;
+            background: var(--black);
+        }
+
+        .menu-tabs {
+            display: flex;
+            justify-content: center;
+            gap: 4px;
+            margin-bottom: 52px;
+        }
+
+        .menu-tab {
+            background: transparent;
+            border: 1px solid rgba(200, 151, 42, 0.3);
+            color: rgba(255, 255, 255, 0.5);
+            padding: 10px 28px;
+            font-size: 0.75rem;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            cursor: pointer;
+            transition: all 0.3s;
+            font-family: 'Inter', sans-serif;
+        }
+
+        .menu-tab.active,
+        .menu-tab:hover {
+            background: var(--gold);
+            border-color: var(--gold);
+            color: var(--black);
+            font-weight: 600;
+        }
+
+        .menu-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 2px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .menu-panel {
+            display: none;
+        }
+
+        .menu-panel.active {
+            display: contents;
+        }
+
+        .menu-item {
+            background: var(--dark2);
+            padding: 32px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.04);
+            border-right: 1px solid rgba(255, 255, 255, 0.04);
+            transition: background 0.3s;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .menu-item::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0;
+            bottom: 0;
+            width: 2px;
+            background: var(--gold);
+            transform: scaleY(0);
+            transition: transform 0.3s;
+            transform-origin: bottom;
+        }
+
+        .menu-item:hover {
+            background: var(--dark3);
+        }
+
+        .menu-item:hover::before {
+            transform: scaleY(1);
+        }
+
+        .menu-item-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 10px;
+        }
+
+        .menu-item-name {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.1rem;
+            color: var(--white);
+        }
+
+        .menu-item-price {
+            color: var(--gold-light);
+            font-size: 1rem;
+            font-weight: 600;
+            white-space: nowrap;
+            margin-left: 12px;
+        }
+
+        .menu-item-desc {
+            font-size: 0.82rem;
+            color: rgba(255, 255, 255, 0.5);
+            line-height: 1.65;
+        }
+
+        .menu-item-badge {
+            display: inline-block;
+            background: var(--red);
+            color: #fff;
+            font-size: 0.6rem;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            padding: 3px 8px;
+            border-radius: 2px;
+            margin-top: 12px;
+        }
+
+        /* ── GALLERY ── */
+        #gallery {
+            padding: 100px 10%;
+            background: var(--dark);
+        }
+
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            grid-template-rows: auto auto;
+            gap: 4px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .gallery-item {
+            overflow: hidden;
+            cursor: pointer;
+            position: relative;
+        }
+
+        .gallery-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+            transition: transform 0.5s ease;
+            min-height: 200px;
+        }
+
+        .gallery-item:hover img {
+            transform: scale(1.06);
+        }
+
+        .gallery-item.tall {
+            grid-row: span 2;
+        }
+
+        .gallery-item.wide {
+            grid-column: span 2;
+        }
+
+        .gallery-item-overlay {
+            position: absolute;
+            inset: 0;
+            background: rgba(200, 151, 42, 0.0);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: background 0.3s;
+        }
+
+        .gallery-item:hover .gallery-item-overlay {
+            background: rgba(200, 151, 42, 0.15);
+        }
+
+        .gallery-plus {
+            color: #fff;
+            font-size: 2rem;
+            opacity: 0;
+            transition: opacity 0.3s;
+        }
+
+        .gallery-item:hover .gallery-plus {
+            opacity: 1;
+        }
+
+        /* ── RESERVATION ── */
+        #reserve {
+            padding: 100px 10%;
+            background: url('bararea.png') center center / cover no-repeat;
+            position: relative;
+        }
+
+        #reserve::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: rgba(10, 10, 10, 0.88);
+        }
+
+        .reserve-inner {
+            position: relative;
+            z-index: 2;
+            max-width: 780px;
+            margin: 0 auto;
+        }
+
+        .reserve-form {
+            background: rgba(26, 26, 26, 0.85);
+            border: 1px solid rgba(200, 151, 42, 0.2);
+            padding: 52px;
+            margin-top: 48px;
+            backdrop-filter: blur(8px);
+        }
+
+        .form-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+            margin-bottom: 20px;
+        }
+
+        .form-group {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+
+        .form-group.full {
+            grid-column: span 2;
+        }
+
+        .form-group label {
+            font-size: 0.7rem;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            color: rgba(255, 255, 255, 0.5);
+        }
+
+        .form-group input,
+        .form-group select,
+        .form-group textarea {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            color: var(--white);
+            padding: 14px 16px;
+            font-size: 0.9rem;
+            font-family: 'Inter', sans-serif;
+            outline: none;
+            transition: border-color 0.3s;
+            border-radius: 2px;
+        }
+
+        .form-group input:focus,
+        .form-group select:focus,
+        .form-group textarea:focus {
+            border-color: var(--gold);
+        }
+
+        .form-group select option {
+            background: var(--dark2);
+        }
+
+        .form-group textarea {
+            resize: vertical;
+            min-height: 100px;
+        }
+
+        .form-submit {
+            width: 100%;
+            margin-top: 8px;
+            background: var(--red);
+            color: #fff;
+            border: none;
+            padding: 18px;
+            font-size: 0.82rem;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            cursor: pointer;
+            font-family: 'Inter', sans-serif;
+            transition: background 0.3s, transform 0.2s;
+            border-radius: 2px;
+        }
+
+        .form-submit:hover {
+            background: var(--red-light);
+            transform: translateY(-2px);
+        }
+
+        /* ── FOOTER ── */
+        footer {
+            background: var(--dark2);
+            border-top: 1px solid rgba(200, 151, 42, 0.15);
+            padding: 72px 10% 32px;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1.5fr;
+            gap: 48px;
+            max-width: 1200px;
+            margin: 0 auto 56px;
+        }
+
+        .footer-brand img {
+            height: 60px;
+            filter: brightness(0) invert(1);
+            margin-bottom: 20px;
+        }
+
+        .footer-brand p {
+            font-size: 0.85rem;
+            color: rgba(255, 255, 255, 0.5);
+            line-height: 1.7;
+            max-width: 280px;
+        }
+
+        .footer-socials {
+            display: flex;
+            gap: 12px;
+            margin-top: 24px;
+        }
+
+        .social-btn {
+            width: 38px;
+            height: 38px;
+            border: 1px solid rgba(200, 151, 42, 0.3);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--gold-light);
+            font-size: 0.85rem;
+            text-decoration: none;
+            border-radius: 2px;
+            transition: background 0.3s, border-color 0.3s;
+        }
+
+        .social-btn:hover {
+            background: var(--gold);
+            border-color: var(--gold);
+            color: var(--black);
+        }
+
+        .footer-col h4 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1rem;
+            color: var(--gold-light);
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 1px solid rgba(200, 151, 42, 0.2);
+        }
+
+        .footer-col ul {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .footer-col ul a {
+            text-decoration: none;
+            color: rgba(255, 255, 255, 0.5);
+            font-size: 0.85rem;
+            transition: color 0.3s, padding-left 0.3s;
+        }
+
+        .footer-col ul a:hover {
+            color: var(--gold-light);
+            padding-left: 4px;
+        }
+
+        .footer-contact p {
+            display: flex;
+            align-items: flex-start;
+            gap: 10px;
+            font-size: 0.85rem;
+            color: rgba(255, 255, 255, 0.5);
+            margin-bottom: 14px;
+            line-height: 1.5;
+        }
+
+        .footer-contact span.icon {
+            color: var(--gold-light);
+            font-size: 1rem;
+            flex-shrink: 0;
+        }
+
+        .footer-bottom {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding-top: 24px;
+            border-top: 1px solid rgba(255, 255, 255, 0.06);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .footer-bottom p {
+            font-size: 0.78rem;
+            color: rgba(255, 255, 255, 0.3);
+        }
+
+        .footer-bottom span {
+            color: var(--red-light);
+        }
+
+        /* ── SCROLL REVEAL ── */
+        .reveal {
+            opacity: 0;
+            transform: translateY(40px);
+            transition: opacity 0.7s ease, transform 0.7s ease;
+        }
+
+        .reveal.visible {
+            opacity: 1;
+            transform: none;
+        }
+
+        /* ── RESPONSIVE ── */
+        @media (max-width: 900px) {
+            .nav-links {
+                display: none;
+            }
+
+            .experience-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+
+            .exp-card.large {
+                grid-column: span 2;
+            }
+
+            .gallery-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+
+            .gallery-item.tall {
+                grid-row: span 1;
+            }
+
+            .gallery-item.wide {
+                grid-column: span 2;
+            }
+
+            .footer-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+
+            .form-row {
+                grid-template-columns: 1fr;
+            }
+
+            .form-group.full {
+                grid-column: span 1;
+            }
+        }
+
+        @media (max-width: 600px) {
+            .stats-bar {
+                flex-wrap: wrap;
+                gap: 24px;
+            }
+
+            .experience-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .exp-card.large {
+                grid-column: span 1;
+                aspect-ratio: 4/3;
+            }
+
+            .gallery-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .gallery-item.wide {
+                grid-column: span 1;
+            }
+
+            .reserve-form {
+                padding: 28px 20px;
+            }
+
+            .footer-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- NAVBAR -->
+    <nav id="navbar">
+        <a href="#" class="nav-logo">
+            <img src="logo.jpg" alt="Oro Lounge Logo" />
+            <div class="nav-logo-text">
+                <span>ORO LOUNGE</span>
+                <span>Events · Bar · Restaurant</span>
+            </div>
+        </a>
+        <ul class="nav-links">
+            <li><a href="#experience">Experience</a></li>
+            <li><a href="#menu">Menu</a></li>
+            <li><a href="#gallery">Gallery</a></li>
+            <li><a href="#reserve" class="nav-cta">Reserve a Table</a></li>
+        </ul>
+    </nav>
+
+    <!-- HERO -->
+    <section id="hero">
+        <div class="hero-bg"></div>
+        <div class="hero-overlay"></div>
+        <div class="hero-content">
+            <div class="hero-tag">Welcome to Oro Lounge</div>
+            <h1 class="hero-title">
+                Where Every Night<br />Becomes <span class="gold">Golden</span>
+            </h1>
+            <p class="hero-sub">
+                A premier destination for exceptional dining, handcrafted cocktails, and unforgettable events — all
+                under one roof.
+            </p>
+            <div class="hero-actions">
+                <a href="#reserve" class="btn-primary">Reserve a Table</a>
+                <a href="#menu" class="btn-outline">Explore Our Menu</a>
+            </div>
+        </div>
+        <div class="hero-scroll">
+            <span>Scroll</span>
+            <div class="arrow"></div>
+        </div>
+    </section>
+
+    <!-- STATS BAR -->
+    <div class="stats-bar">
+        <div class="stat-item reveal">
+            <div class="stat-number">5★</div>
+            <div class="stat-label">Rated Experience</div>
+        </div>
+        <div class="stat-item reveal">
+            <div class="stat-number">80+</div>
+            <div class="stat-label">Menu Items</div>
+        </div>
+        <div class="stat-item reveal">
+            <div class="stat-number">200+</div>
+            <div class="stat-label">Event Capacity</div>
+        </div>
+        <div class="stat-item reveal">
+            <div class="stat-number">10+</div>
+            <div class="stat-label">Years of Excellence</div>
+        </div>
+    </div>
+
+    <!-- EXPERIENCE -->
+    <section id="experience">
+        <div class="section-header reveal">
+            <div class="section-tag">What We Offer</div>
+            <h2 class="section-title">The Oro Experience</h2>
+            <div class="section-line"></div>
+        </div>
+
+        <div class="experience-grid">
+            <div class="exp-card large reveal">
+                <img src="oroBar.jpg" alt="Oro Bar" />
+                <div class="exp-card-overlay">
+                    <div class="exp-icon">🍸</div>
+                    <div class="exp-card-title">The Bar</div>
+                    <div class="exp-card-desc">Craft cocktails, premium spirits, and an extensive wine list curated to
+                        perfection by our expert mixologists.</div>
+                    <div class="exp-card-tag">Signature Cocktails</div>
+                </div>
+            </div>
+            <div class="exp-card reveal">
+                <img src="pic1.jpg" alt="Dining" />
+                <div class="exp-card-overlay">
+                    <div class="exp-icon">🍽️</div>
+                    <div class="exp-card-title">Dining</div>
+                    <div class="exp-card-desc">From casual bites to full-course meals, our kitchen delivers bold flavors
+                        for every appetite.</div>
+                    <div class="exp-card-tag">Full Menu Available</div>
+                </div>
+            </div>
+            <div class="exp-card reveal">
+                <img src="orobar2.jpg" alt="Events" />
+                <div class="exp-card-overlay">
+                    <div class="exp-icon">🎉</div>
+                    <div class="exp-card-title">Events</div>
+                    <div class="exp-card-desc">Host birthdays, corporate events, or private parties in our spacious,
+                        fully-equipped venue.</div>
+                    <div class="exp-card-tag">Book Your Event</div>
+                </div>
+            </div>
+            <div class="exp-card reveal">
+                <img src="oroBar.jpg" alt="Live Entertainment" />
+                <div class="exp-card-overlay">
+                    <div class="exp-icon">🎶</div>
+                    <div class="exp-card-title">Live Entertainment</div>
+                    <div class="exp-card-desc">Weekend live music, DJ nights, and sports screenings on multiple HD
+                        screens throughout the venue.</div>
+                    <div class="exp-card-tag">Every Weekend</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- MENU PREVIEW -->
+    <section id="menu">
+        <div class="section-header reveal">
+            <div class="section-tag">Taste the Gold</div>
+            <h2 class="section-title">Our Menu</h2>
+            <div class="section-line"></div>
+        </div>
+
+        <div class="menu-tabs">
+            <button class="menu-tab active" onclick="switchTab('cocktails', this)">Cocktails</button>
+            <button class="menu-tab" onclick="switchTab('food', this)">Food</button>
+            <button class="menu-tab" onclick="switchTab('events', this)">Event Packages</button>
+        </div>
+
+        <div class="menu-grid">
+            <div id="cocktails" class="menu-panel active">
+                <div class="menu-item reveal">
+                    <div class="menu-item-header">
+                        <div class="menu-item-name">Golden Sunrise</div>
+                        <div class="menu-item-price">$14</div>
+                    </div>
+                    <div class="menu-item-desc">Tequila, fresh orange juice, grenadine, and a touch of champagne. A
+                        radiant start to your evening.</div>
+                    <div class="menu-item-badge">🔥 Bestseller</div>
+                </div>
+                <div class="menu-item reveal">
+                    <div class="menu-item-header">
+                        <div class="menu-item-name">Midnight Velvet</div>
+                        <div class="menu-item-price">$16</div>
+                    </div>
+                    <div class="menu-item-desc">Dark rum, blackberry liqueur, muddled mint, and a squeeze of fresh lime.
+                    </div>
+                </div>
+                <div class="menu-item reveal">
+                    <div class="menu-item-header">
+                        <div class="menu-item-name">Oro Old Fashioned</div>
+                        <div class="menu-item-price">$18</div>
+                    </div>
+                    <div class="menu-item-desc">Aged bourbon, aromatic bitters, raw cane sugar, and a twist of orange
+                        peel.</div>
+                    <div class="menu-item-badge">⭐ Signature</div>
+                </div>
+                <div class="menu-item reveal">
+                    <div class="menu-item-header">
+                        <div class="menu-item-name">Red Femme</div>
+                        <div class="menu-item-price">$13</div>
+                    </div>
+                    <div class="menu-item-desc">Vodka, cranberry, rose syrup, and a splash of prosecco — elegant and
+                        bold.</div>
+                </div>
+                <div class="menu-item reveal">
+                    <div class="menu-item-header">
+                        <div class="menu-item-name">Smoke & Gold</div>
+                        <div class="menu-item-price">$20</div>
+                    </div>
+                    <div class="menu-item-desc">Mezcal, honey syrup, fresh lemon, and a hickory smoke finish under a
+                        glass dome.</div>
+                    <div class="menu-item-badge">✨ Chef's Pick</div>
+                </div>
+                <div class="menu-item reveal">
+                    <div class="menu-item-header">
+                        <div class="menu-item-name">Classic Mojito</div>
+                        <div class="menu-item-price">$12</div>
+                    </div>
+                    <div class="menu-item-desc">White rum, fresh lime, cane sugar, and muddled mint topped with
+                        sparkling water.</div>
+                </div>
+            </div>
+
+            <div id="food" class="menu-panel">
+                <div class="menu-item reveal">
+                    <div class="menu-item-header">
+                        <div class="menu-item-name">Oro Loaded Fries</div>
+                        <div class="menu-item-price">$12</div>
+                    </div>
+                    <div class="menu-item-desc">Crispy golden fries topped with cheddar, jalapeños, sour cream, and
+                        crispy bacon bits.</div>
+                    <div class="menu-item-badge">🔥 Fan Favorite</div>
+                </div>
+                <div class="menu-item reveal">
+                    <div class="menu-item-header">
+                        <div class="menu-item-name">Smash Burger</div>
+                        <div class="menu-item-price">$16</div>
+                    </div>
+                    <div class="menu-item-desc">Double smashed patty, American cheese, caramelized onions, and Oro
+                        signature sauce on a brioche bun.</div>
+                    <div class="menu-item-badge">⭐ Signature</div>
+                </div>
+                <div class="menu-item reveal">
+                    <div class="menu-item-header">
+                        <div class="menu-item-name">Jerk Chicken Wings</div>
+                        <div class="menu-item-price">$15</div>
+                    </div>
+                    <div class="menu-item-desc">Slow-marinated in Caribbean spices, grilled to perfection, served with
+                        mango dipping sauce.</div>
+                </div>
+                <div class="menu-item reveal">
+                    <div class="menu-item-header">
+                        <div class="menu-item-name">Shrimp Tacos</div>
+                        <div class="menu-item-price">$17</div>
+                    </div>
+                    <div class="menu-item-desc">Grilled shrimp, avocado crema, pickled slaw, and cilantro in soft flour
+                        tortillas.</div>
+                </div>
+                <div class="menu-item reveal">
+                    <div class="menu-item-header">
+                        <div class="menu-item-name">Ribeye Steak</div>
+                        <div class="menu-item-price">$42</div>
+                    </div>
+                    <div class="menu-item-desc">12oz USDA prime ribeye, garlic butter, fresh herbs, with your choice of
+                        sides.</div>
+                    <div class="menu-item-badge">✨ Premium Cut</div>
+                </div>
+                <div class="menu-item reveal">
+                    <div class="menu-item-header">
+                        <div class="menu-item-name">Veggie Flatbread</div>
+                        <div class="menu-item-price">$13</div>
+                    </div>
+                    <div class="menu-item-desc">Roasted bell peppers, artichoke hearts, ricotta, and fresh basil
+                        drizzled with truffle oil.</div>
+                </div>
+            </div>
+
+            <div id="events" class="menu-panel">
+                <div class="menu-item reveal">
+                    <div class="menu-item-header">
+                        <div class="menu-item-name">Birthday Package</div>
+                        <div class="menu-item-price">From $250</div>
+                    </div>
+                    <div class="menu-item-desc">Reserved section, birthday bottle, cake cutting service, and a dedicated
+                        host for up to 20 guests.</div>
+                    <div class="menu-item-badge">🎂 Most Popular</div>
+                </div>
+                <div class="menu-item reveal">
+                    <div class="menu-item-header">
+                        <div class="menu-item-name">Corporate Package</div>
+                        <div class="menu-item-price">From $800</div>
+                    </div>
+                    <div class="menu-item-desc">Full venue buyout option, AV setup, catering, and a dedicated event
+                        coordinator for up to 200 guests.</div>
+                    <div class="menu-item-badge">💼 Business</div>
+                </div>
+                <div class="menu-item reveal">
+                    <div class="menu-item-header">
+                        <div class="menu-item-name">VIP Bottle Service</div>
+                        <div class="menu-item-price">From $150/bottle</div>
+                    </div>
+                    <div class="menu-item-desc">Premium bottle selection with mixers, garnishes, and a personal VIP
+                        server throughout the night.</div>
+                    <div class="menu-item-badge">⭐ VIP</div>
+                </div>
+                <div class="menu-item reveal">
+                    <div class="menu-item-header">
+                        <div class="menu-item-name">Weekend Brunch</div>
+                        <div class="menu-item-price">$45/person</div>
+                    </div>
+                    <div class="menu-item-desc">Unlimited mimosas, bottomless brunch bites, and live music. Saturdays &
+                        Sundays 11AM–3PM.</div>
+                    <div class="menu-item-badge">🥂 Weekend Special</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- GALLERY -->
+    <section id="gallery">
+        <div class="section-header reveal">
+            <div class="section-tag">A Glimpse Inside</div>
+            <h2 class="section-title">Our Atmosphere</h2>
+            <div class="section-line"></div>
+        </div>
+        <div class="gallery-grid">
+            <div class="gallery-item tall reveal">
+                <img src="oroBar.jpg" alt="Bar Interior" />
+                <div class="gallery-item-overlay">
+                    <div class="gallery-plus">＋</div>
+                </div>
+            </div>
+            <div class="gallery-item wide reveal">
+                <img src="orobar2.jpg" alt="Full Bar View" />
+                <div class="gallery-item-overlay">
+                    <div class="gallery-plus">＋</div>
+                </div>
+            </div>
+            <div class="gallery-item reveal">
+                <img src="pic1.jpg" alt="Dining Area" />
+                <div class="gallery-item-overlay">
+                    <div class="gallery-plus">＋</div>
+                </div>
+            </div>
+            <div class="gallery-item reveal">
+                <img src="oroBar.jpg" alt="Ambiance" />
+                <div class="gallery-item-overlay">
+                    <div class="gallery-plus">＋</div>
+                </div>
+            </div>
+            <div class="gallery-item reveal">
+                <img src="orobar2.jpg" alt="Bar Seating" />
+                <div class="gallery-item-overlay">
+                    <div class="gallery-plus">＋</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- RESERVATION -->
+    <section id="reserve">
+        <div class="reserve-inner">
+            <div class="section-header reveal">
+                <div class="section-tag">Join Us</div>
+                <h2 class="section-title">Make a Reservation</h2>
+                <div class="section-line"></div>
+            </div>
+            <p style="text-align:center;color:rgba(255,255,255,0.55);font-size:0.9rem;margin-top:-32px;margin-bottom:0;"
+                class="reveal">
+                Secure your table at Oro Lounge — walk-ins welcome, but reservations are always guaranteed.
+            </p>
+            <div class="reserve-form reveal">
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="res-name">Full Name</label>
+                        <input type="text" id="res-name" placeholder="John Doe" />
+                    </div>
+                    <div class="form-group">
+                        <label for="res-phone">Phone Number</label>
+                        <input type="tel" id="res-phone" placeholder="+1 (555) 000-0000" />
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="res-date">Date</label>
+                        <input type="date" id="res-date" />
+                    </div>
+                    <div class="form-group">
+                        <label for="res-time">Time</label>
+                        <input type="time" id="res-time" />
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="res-guests">Number of Guests</label>
+                        <select id="res-guests">
+                            <option value="">Select</option>
+                            <option>1–2 Guests</option>
+                            <option>3–5 Guests</option>
+                            <option>6–10 Guests</option>
+                            <option>11–20 Guests</option>
+                            <option>20+ Guests (Event)</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="res-occasion">Occasion</label>
+                        <select id="res-occasion">
+                            <option value="">Select</option>
+                            <option>Regular Dining</option>
+                            <option>Birthday</option>
+                            <option>Anniversary</option>
+                            <option>Corporate Event</option>
+                            <option>Private Party</option>
+                            <option>Other</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-group full">
+                        <label for="res-notes">Special Requests</label>
+                        <textarea id="res-notes"
+                            placeholder="Dietary requirements, accessibility needs, decorations..."></textarea>
+                    </div>
+                </div>
+                <button class="form-submit" onclick="handleReservation()">Confirm Reservation</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+        <div class="footer-grid">
+            <div class="footer-brand">
+                <img src="logo.jpg" alt="Oro Lounge" />
+                <p>Oro Lounge is your premier destination for memorable experiences — where great food, expertly crafted
+                    drinks, and vibrant events come together.</p>
+                <div class="footer-socials">
+                    <a href="#" class="social-btn" title="Facebook">f</a>
+                    <a href="#" class="social-btn" title="Instagram">in</a>
+                    <a href="#" class="social-btn" title="Twitter">𝕏</a>
+                    <a href="#" class="social-btn" title="YouTube">▶</a>
+                </div>
+            </div>
+            <div class="footer-col">
+                <h4>Navigate</h4>
+                <ul>
+                    <li><a href="#hero">Home</a></li>
+                    <li><a href="#experience">Experience</a></li>
+                    <li><a href="#menu">Menu</a></li>
+                    <li><a href="#gallery">Gallery</a></li>
+                    <li><a href="#reserve">Reserve</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Hours</h4>
+                <ul>
+                    <li><a href="#">Mon – Thu: 4pm – 1am</a></li>
+                    <li><a href="#">Fri: 4pm – 2am</a></li>
+                    <li><a href="#">Sat: 12pm – 2am</a></li>
+                    <li><a href="#">Sun: 12pm – 12am</a></li>
+                </ul>
+            </div>
+            <div class="footer-col footer-contact">
+                <h4>Contact Us</h4>
+                <p><span class="icon">📍</span> 123 Lounge Blvd, Suite 100<br />Your City, ST 00000</p>
+                <p><span class="icon">📞</span> (555) 123-4567</p>
+                <p><span class="icon">✉️</span> info@orolounge.com</p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>© 2025 Oro Lounge. All rights reserved.</p>
+            <p>Made with <span>♥</span> for unforgettable nights.</p>
+        </div>
+    </footer>
+
+    <script>
+        // ── Menu Tab Switcher
+        function switchTab(id, btn) {
+            document.querySelectorAll('.menu-panel').forEach(p => p.classList.remove('active'));
+            document.querySelectorAll('.menu-tab').forEach(t => t.classList.remove('active'));
+            document.getElementById(id).classList.add('active');
+            btn.classList.add('active');
+        }
+
+        // ── Reservation Handler
+        function handleReservation() {
+            const name = document.getElementById('res-name').value.trim();
+            const phone = document.getElementById('res-phone').value.trim();
+            const date = document.getElementById('res-date').value;
+            const time = document.getElementById('res-time').value;
+            if (!name || !phone || !date || !time) {
+                alert('Please fill in all required fields (Name, Phone, Date, Time).');
+                return;
+            }
+            alert(`✅ Reservation confirmed for ${name}!\nWe look forward to seeing you on ${new Date(date + 'T12:00:00').toDateString()} at ${time}.\n\nOro Lounge — See you soon! 🥂`);
+        }
+
+        // ── Scroll Reveal
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
+        }, { threshold: 0.12 });
+        document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+        // ── Navbar background on scroll
+        window.addEventListener('scroll', () => {
+            const nav = document.getElementById('navbar');
+            if (window.scrollY > 60) {
+                nav.style.background = 'rgba(10,10,10,0.97)';
+            } else {
+                nav.style.background = 'rgba(10,10,10,0.85)';
+            }
+        });
+    </script>
+</body>
+
+</html>
