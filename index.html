@@ -171,58 +171,29 @@
             align-items: center;
         }
 
-        .hero-top {
-            position: absolute;
-            top: 110px;
-            left: 50%;
-            transform: translateX(-50%);
-            text-align: center;
-            z-index: 10;
-            width: 100%;
-            padding: 0 40px;
-        }
 
-        .hero-bottom {
-            position: absolute;
-            bottom: 25px;
-            left: 50%;
-            transform: translateX(-50%);
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            gap: 20px;
-            width: 100%;
-            z-index: 10;
-        }
 
         .hero-split {
             position: relative;
             z-index: 2;
-            padding: 240px 80px 120px;
+            padding: 120px 80px;
             display: flex;
             flex-direction: column;
             justify-content: center;
         }
 
         .left-split {
-            align-items: center;
-            text-align: center;
-            padding-right: 270px;
+            align-items: flex-start;
+            text-align: left;
         }
 
         .right-split {
             align-items: center;
+            justify-content: center;
             text-align: center;
-            padding-left: 270px;
         }
 
-        .hero-center {
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            z-index: 3;
+        .hero-image-circle {
             width: 500px;
             height: 500px;
             border-radius: 50%;
@@ -280,15 +251,16 @@
 
         .hero-services {
             display: flex;
-            flex-direction: column;
+            flex-direction: row;
             align-items: center;
-            gap: 4px;
+            gap: 12px;
             color: #FFFFFF;
-            font-family: 'Playfair Display', serif;
-            font-size: clamp(2.5rem, 3.5vw, 4rem);
-            font-weight: 700;
-            line-height: 1.15;
+            font-size: 0.85rem;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            font-weight: 600;
             margin-bottom: 24px;
+            flex-wrap: wrap;
             animation: fadeUp 1s 0.3s ease forwards;
             opacity: 0;
         }
@@ -296,8 +268,6 @@
         .hero-services span {
             color: #FF0000;
             text-shadow: 0 0 10px rgba(255, 0, 0, 0.5);
-            font-size: 1.5rem;
-            line-height: 1;
         }
 
         .hero-sub {
@@ -322,7 +292,7 @@
             flex-wrap: wrap;
             animation: fadeUp 1s 0.6s ease forwards;
             opacity: 0;
-            justify-content: center;
+            justify-content: flex-start;
         }
 
         .btn-primary {
@@ -1266,41 +1236,28 @@
 
     <!-- HERO -->
     <section id="hero">
-        <div class="hero-top">
-            <div class="hero-tag">Welcome to Oro Lounge</div>
-        </div>
-
         <div class="hero-split left-split">
-            <div class="hero-services">
-                Night Club<br />
-                Events<br />
-                Bar<br />
-                Restaurant<br />
-                Banquet Hall
-            </div>
-        </div>
-
-        <div class="hero-center"></div>
-
-        <div class="hero-split right-split">
+            <div class="hero-tag">Welcome to Oro Lounge</div>
             <h1 class="hero-title">
-                <span class="white-text">Where</span><br />
-                <span class="white-text">Every</span><br />
-                <span class="white-text">Night</span><br />
-                Becomes<br />
-                <span class="gold-accent">Golden</span>
+                <span class="white-text">Where Every Night</span><br />
+                Becomes <span class="gold-accent">Golden</span>
             </h1>
-            <div class="hero-actions">
-                <a href="#reserve" class="btn-primary">Reserve a Table</a>
+            <div class="hero-services">
+                Night Club <span>·</span> Events <span>·</span> Bar <span>·</span> Restaurant <span>·</span> Banquet
+                Hall
             </div>
-        </div>
-
-        <div class="hero-bottom">
-            <p class="hero-sub" style="margin: 0; max-width: none;">
-                A premier destination for <span>exceptional dining</span>, <span>handcrafted cocktails</span>, and
+            <p class="hero-sub">
+                A premier destination for <span>exceptional dining</span>, <span>handcrafted cocktails</span>, and<br />
                 <span>unforgettable events</span> — all under one roof.
             </p>
-            <a href="#reserve" class="btn-primary" style="margin: 0;">Reserve Banquet Hall</a>
+            <div class="hero-actions">
+                <a href="#reserve" class="btn-primary">Reserve a Table</a>
+                <a href="#reserve" class="btn-primary">Reserve Banquet Hall</a>
+            </div>
+        </div>
+
+        <div class="hero-split right-split">
+            <div class="hero-image-circle"></div>
         </div>
     </section>
 
