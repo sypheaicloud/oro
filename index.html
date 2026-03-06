@@ -164,135 +164,122 @@
         #hero {
             position: relative;
             min-height: 100vh;
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            background: #000000;
-            overflow: hidden;
+            display: flex;
+            justify-content: flex-end;
             align-items: center;
+            background: radial-gradient(circle at center right, #1a0202 0%, #000000 65%);
+            overflow: hidden;
+            padding-top: 60px;
         }
 
+        .hero-left-bg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 55%;
+            height: 100%;
+            background: url('bararea2.png') center center / cover no-repeat;
+            border-radius: 0 40% 40% 0 / 0 50% 50% 0;
+            z-index: 1;
+            border-right: 8px solid #6E0505;
+            box-shadow: 15px 0 35px rgba(110, 5, 5, 0.7), inset -10px 0 20px rgba(0, 0, 0, 0.6);
+        }
 
-
-        .hero-split {
+        .hero-right-content {
             position: relative;
             z-index: 2;
-            padding: 120px 80px;
+            width: 45%;
             display: flex;
             flex-direction: column;
-            justify-content: center;
-        }
-
-        .left-split {
-            align-items: flex-start;
-            text-align: left;
-        }
-
-        .right-split {
             align-items: center;
-            justify-content: center;
             text-align: center;
+            padding: 0 5%;
+            margin-top: -100px;
         }
 
-        .hero-image-circle {
-            width: 500px;
-            height: 500px;
-            border-radius: 50%;
-            border: 8px solid #FFD700;
-            background: url('bararea2.png') center center / cover no-repeat;
-            box-shadow: 0 0 40px rgba(255, 140, 0, 0.6), inset 0 0 20px rgba(0, 0, 0, 0.5);
-            animation: heroBreathe 6s ease-in-out infinite alternate;
-        }
-
-        @keyframes heroBreathe {
-            from {
-                transform: translate(-50%, -50%) scale(1);
-                box-shadow: 0 0 30px rgba(255, 0, 0, 0.4);
-            }
-
-            to {
-                transform: translate(-50%, -50%) scale(1.05);
-                box-shadow: 0 0 60px rgba(255, 140, 0, 0.8), inset 0 0 30px #FF0000;
-            }
-        }
-
-        .hero-tag {
-            display: inline-block;
-            background: rgba(255, 140, 0, 0.15);
-            backdrop-filter: blur(4px);
-            border: 1px solid #FFD700;
-            color: #FFD700;
-            font-size: 0.85rem;
-            font-weight: 700;
-            letter-spacing: 4px;
+        .new-title {
+            font-family: 'Inter', sans-serif;
+            font-size: clamp(3rem, 5vw, 4.5rem);
+            font-weight: 800;
             text-transform: uppercase;
-            padding: 8px 22px;
-            margin-bottom: 28px;
-            border-radius: 50px;
-            box-shadow: 0 0 20px rgba(255, 140, 0, 0.2);
+            background: linear-gradient(135deg, #FF0000 0%, #FF8C00 50%, #FFD700 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 20px;
+            letter-spacing: -1px;
             animation: fadeUp 0.8s ease forwards;
-            opacity: 0;
         }
 
-        .hero-title {
+        .services-tagline {
             font-family: 'Playfair Display', serif;
-            font-size: clamp(2.5rem, 3.5vw, 4rem);
-            font-weight: 700;
-            line-height: 1.15;
-            margin-bottom: 24px;
-            animation: fadeUp 0.9s 0.2s ease forwards;
-            opacity: 0;
-            color: #FFFFFF;
-        }
-
-        .hero-title .gold-accent {
-            color: #FFD700;
-            text-shadow: 0 2px 10px rgba(255, 140, 0, 0.6);
-        }
-
-        .hero-services {
-            display: flex;
-            flex-direction: row;
-            align-items: center;
-            gap: 12px;
-            color: #FFFFFF;
-            font-size: 0.85rem;
-            letter-spacing: 3px;
+            font-size: 1.95rem;
+            color: var(--gold-light);
+            letter-spacing: 2px;
             text-transform: uppercase;
-            font-weight: 600;
+            font-weight: 700;
             margin-bottom: 24px;
-            flex-wrap: wrap;
-            animation: fadeUp 1s 0.3s ease forwards;
-            opacity: 0;
+            opacity: 1;
+            animation: fadeUp 1s 0.2s ease forwards;
         }
 
-        .hero-services span {
-            color: #FF0000;
-            text-shadow: 0 0 10px rgba(255, 0, 0, 0.5);
+        .title-divider {
+            width: 80px;
+            height: 2px;
+            background: #FFFFFF;
+            margin: 0 auto 30px;
+            opacity: 0.5;
+            animation: fadeUp 1s ease forwards;
         }
 
-        .hero-sub {
-            font-size: 1.1rem;
-            color: rgba(255, 255, 255, 0.85);
-            line-height: 1.8;
-            max-width: 520px;
-            margin: 0 0 36px;
-            font-weight: 400;
-            animation: fadeUp 1s 0.5s ease forwards;
-            opacity: 0;
+        .new-subtext {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.45rem;
+            color: var(--gold-light);
+            letter-spacing: 2px;
+            font-weight: 700;
+            max-width: 900px;
+            margin: 0 auto 40px;
+            line-height: 1.4;
+            opacity: 1;
+            animation: fadeUp 1.2s ease forwards;
         }
 
-        .hero-sub span {
-            color: #FF8C00;
-            font-weight: 600;
+        .pill-btn {
+            background: linear-gradient(145deg, #4d0000 0%, #000000 40%, #1a0000 75%, #ff4500 100%);
+            color: #ffffff;
+            padding: 14px 45px;
+            border-radius: 50px;
+            font-size: 1rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            text-decoration: none;
+            display: inline-block;
+            position: relative;
+            overflow: hidden;
+            border: 1.5px solid #8b0000;
+            box-shadow: 0 4px 15px rgba(139, 0, 0, 0.5), inset 0 0 10px rgba(255, 69, 0, 0.2);
+            transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+            animation: fadeUp 1.4s ease forwards;
         }
 
-        .hero-actions {
-            display: flex;
-            gap: 14px;
-            flex-wrap: wrap;
-            animation: fadeUp 1s 0.6s ease forwards;
-            opacity: 0;
-            justify-content: flex-start;
+        .pill-btn::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(255, 69, 0, 0.15) 0%, transparent 70%);
+            pointer-events: none;
+        }
+
+        .pill-btn:hover {
+            transform: translateY(-3px) scale(1.05);
+            background: linear-gradient(145deg, #800000 0%, #000000 45%, #2a0000 70%, #ff8c00 100%);
+            border-color: #ff4500;
+            box-shadow: 0 10px 30px rgba(255, 0, 0, 0.4), 0 0 20px rgba(255, 69, 0, 0.3);
+            color: #ffffff;
         }
 
         .btn-primary {
@@ -1236,28 +1223,16 @@
 
     <!-- HERO -->
     <section id="hero">
-        <div class="hero-split left-split">
-            <div class="hero-tag">Welcome to Oro Lounge</div>
-            <h1 class="hero-title">
-                <span class="white-text">Where Every Night</span><br />
-                Becomes <span class="gold-accent">Golden</span>
-            </h1>
-            <div class="hero-services">
-                Night Club <span>·</span> Events <span>·</span> Bar <span>·</span> Restaurant <span>·</span> Banquet
-                Hall
-            </div>
-            <p class="hero-sub">
-                A premier destination for <span>exceptional dining</span>, <span>handcrafted cocktails</span>, and<br />
-                <span>unforgettable events</span> — all under one roof.
+        <div class="hero-left-bg"></div>
+        <div class="hero-right-content">
+            <h1 class="new-title">Oro Lounge</h1>
+            <div class="services-tagline">NIGHT CLUB . LIVE EVENTS . RESTAURANT . BAR . BANQUET HALL</div>
+            <div class="title-divider"></div>
+            <p class="new-subtext">
+                A premier destination for exceptional dining, handcrafted cocktails, and unforgettable events. Where
+                every night is Golden.
             </p>
-            <div class="hero-actions">
-                <a href="#reserve" class="btn-primary">Reserve a Table</a>
-                <a href="#reserve" class="btn-primary">Reserve Banquet Hall</a>
-            </div>
-        </div>
-
-        <div class="hero-split right-split">
-            <div class="hero-image-circle"></div>
+            <a href="#reserve" class="pill-btn">RESERVATION</a>
         </div>
     </section>
 
