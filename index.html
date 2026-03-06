@@ -345,6 +345,56 @@
             box-shadow: 0 4px 15px rgba(255, 215, 0, 0.4);
         }
 
+        /* ── RESPONSIVENESS ── */
+        @media (max-width: 991px) {
+            #hero {
+                justify-content: center;
+                text-align: center;
+                padding-top: 180px;
+                /* Even more padding to shift text down */
+                background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.8)), url('bararea2.png') center/cover no-repeat;
+            }
+
+            .hero-left-bg {
+                display: none;
+            }
+
+            .hero-right-content {
+                width: 100%;
+                margin-top: 50px;
+                /* Push down to avoid clipping header */
+                padding: 0 10px;
+            }
+
+            .new-title {
+                font-size: clamp(1.4rem, 10vw, 1.8rem);
+                /* Much smaller for mobile */
+                margin-bottom: 8px;
+                line-height: 1;
+            }
+
+            .services-tagline {
+                font-size: 0.55rem;
+                /* Tiny but readable for mobile width */
+                letter-spacing: 0.5px;
+                line-height: 1.4;
+                margin-bottom: 15px;
+                padding: 0 5px;
+            }
+
+            .new-subtext {
+                font-size: 0.8rem;
+                max-width: 90%;
+                margin: 0 auto 25px;
+                line-height: 1.4;
+            }
+
+            .pill-btn {
+                padding: 10px 25px;
+                font-size: 0.8rem;
+            }
+        }
+
         @keyframes fadeUp {
             from {
                 opacity: 0;
