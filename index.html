@@ -205,9 +205,9 @@
             /* Multi-stop gradient for a 'silky' shimmer */
             background: linear-gradient(to right,
                     #D4AF37 0%,
-                    #F9F295 25%,
-                    #ffffff 50%,
-                    #F9F295 75%,
+                    #FFD700 25%,
+                    #F9F295 50%,
+                    #FFD700 75%,
                     #D4AF37 100%);
             background-size: 200% auto;
             -webkit-background-clip: text;
@@ -216,12 +216,12 @@
             margin-bottom: 20px;
             letter-spacing: -1px;
             animation: fadeUp 0.8s ease forwards, shimmer 4s infinite linear;
-            /* Silky Gold-Black Border Style */
-            -webkit-text-stroke: 1px rgba(0, 0, 0, 0.8);
+            /* Silky Gold Border Style */
+            -webkit-text-stroke: 1px rgba(0, 0, 0, 0.6);
             text-shadow:
-                2px 2px 4px rgba(0, 0, 0, 0.9),
-                0 0 15px rgba(0, 0, 0, 0.8),
-                0 0 30px rgba(0, 0, 0, 0.5);
+                2px 2px 5px rgba(0, 0, 0, 0.7),
+                0 0 15px rgba(212, 175, 55, 0.4),
+                0 0 30px rgba(0, 0, 0, 0.3);
         }
 
         .hero-logo-wrap {
@@ -294,15 +294,15 @@
             }
 
             25% {
-                filter: drop-shadow(0 0 12px #F9F295) drop-shadow(0 0 20px rgba(255, 255, 255, 0.2));
+                filter: drop-shadow(0 0 12px #FFD700) drop-shadow(0 0 20px rgba(255, 255, 255, 0.2));
             }
 
             50% {
-                filter: drop-shadow(0 0 15px #ffffff) drop-shadow(0 0 25px rgba(212, 175, 55, 0.4));
+                filter: drop-shadow(0 0 15px #F9F295) drop-shadow(0 0 25px rgba(212, 175, 55, 0.3));
             }
 
             75% {
-                filter: drop-shadow(0 0 12px #F9F295) drop-shadow(0 0 20px rgba(255, 255, 255, 0.2));
+                filter: drop-shadow(0 0 12px #FFD700) drop-shadow(0 0 20px rgba(255, 255, 255, 0.2));
             }
         }
 
