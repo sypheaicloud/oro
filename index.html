@@ -178,7 +178,7 @@
             left: 0;
             width: 55%;
             height: 100%;
-            background: url('bararea2.png') center center / cover no-repeat;
+            background: url('orohero.png') center center / cover no-repeat;
             border-radius: 0 40% 40% 0 / 0 50% 50% 0;
             z-index: 1;
             border-right: 8px solid #6E0505;
@@ -216,7 +216,17 @@
             margin-bottom: 20px;
             letter-spacing: -1px;
             animation: fadeUp 0.8s ease forwards, shimmer 4s infinite linear;
-            text-shadow: 0 0 30px rgba(255, 69, 0, 0.2);
+            /* Silky Red-Black-Orange Border Style */
+            -webkit-text-stroke: 1px rgba(0, 0, 0, 0.5);
+            text-shadow:
+                0 0 10px rgba(255, 0, 0, 0.7),
+                /* Intense Red Silk */
+                0 0 20px rgba(255, 140, 0, 0.5),
+                /* Vibrant Orange */
+                0 0 30px rgba(0, 0, 0, 0.9),
+                /* Deep Black Contrast */
+                0 0 40px rgba(255, 69, 0, 0.2);
+            /* Soft Red-Orange Ambient Glow */
         }
 
         .hero-logo-wrap {
@@ -1450,7 +1460,7 @@
                 </div>
             </div>
             <div class="exp-card reveal">
-                <img src="bararea2.png" alt="Events" />
+                <img src="orohero.png" alt="Events" />
                 <div class="exp-card-overlay">
                     <div class="exp-icon">🎉</div>
                     <div class="exp-card-title">Events</div>
